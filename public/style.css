@@ -1,0 +1,181 @@
+:root {
+    --color0: #fbf1c7;
+    --color1: #282828;
+    --color2: #a89984;
+    --color3: #bdae93;
+    --color4: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    min-width: 100%;
+    height: fit-content;
+    background: var(--color0);
+    font-size: 21px;
+}
+
+#home {
+    margin: 10% auto;
+    text-align: center;
+    color: var(--color1);
+}
+
+#home p {
+    margin-top: 20px;
+}
+
+input, .submitBtn {
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#home form {
+    margin-top: 20px;
+}
+
+.submitBtn {
+    background: var(--color2);
+    color: var(--color1);
+}
+
+.submitBtn:hover {
+    background-color: var(--color3);
+}
+
+#home a {
+    color: var(--color1);
+}
+
+#home a:hover {
+    color: var(--color2);
+}
+
+.bold_title {
+    font-weight: bold;
+}
+
+#home #footer {
+    margin: 10%;
+}
+
+#room {
+    display: flex;
+    flex-flow: column;
+}
+
+#main_app {
+    display: flex;
+    padding: 10px;
+    flex-flow: row;
+}
+
+#bar {
+    background: var(--color2);
+    color: var(--color1);
+    padding: 15px 20px 10px 20px;
+    display: flex;
+}
+
+#menu_buttons {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+#main_app li {
+    font-size: 18px;
+    margin: 2px;
+}
+
+#music_app {
+    flex-basis: 100%;
+    margin: 10px;
+}
+
+#music_app form, #chat_app form {
+    max-width: 100%;
+    margin: 10px;
+}
+
+#music_app input, #chat_app input {
+    width: 80%;
+}
+
+#music_app form button, #chat_app form button {
+    width: 20%;
+}
+
+
+#chat_app {
+    flex-basis: 100%;
+    margin: 10px;
+}
+
+#queue {
+    height: 350px;
+    background: var(--color4);
+    border: 4px solid var(--color2);
+    overflow: scroll;
+    overflow-x: hidden;
+    margin: 10px;
+}
+
+#chat_box {
+    height: 450px;
+    background: var(--color4);
+    border: 4px solid var(--color2);
+    margin: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    
+}
+
+.list_control_button {
+    font-size: 20px;
+    margin: 5px;
+    padding: 2px;
+}
+
+.control_button {
+    font-size: 28px;
+    margin: 5px;
+    padding: 2px;
+}
+
+
+#controls {
+    display: flex;
+    flex-flow: column;
+}
+
+#main_controls, #misc {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (max-width: 960px) {
+    #main_app {
+        flex-flow: column;
+    }
+    .control_button {
+        font-size: 24px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .control_button {
+        margin: 2px;
+    }
+    #invite_form input {
+        width: 50%;
+    }
+}
