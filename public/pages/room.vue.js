@@ -240,12 +240,11 @@ const Room = {
         socket.emit('join', this.$route.params.room, this.$route.query.user)
     },
     mounted() {
-
         this.invite = 'http://frenly-park.ddns.net/#/join/' +  this.$route.params.room
-
         socket.on('printUsers', users => {
             alert(users)
         })
+        window.addEventListener('unload', this.leaveRoom)
     },
     unmounted() {
         socket.disconnect()
@@ -261,7 +260,10 @@ const Room = {
             alert('Invite copied to clipboard')
         },
         leaveRoom() {
-            router.replace({ path: '/' })
+            if(window.confirm('Do you really wish to leave?')) {
+                socket.disconnect(true)
+                window.location.href = "https://frenly-park.ddns.net"
+            }
         }
     },
     components: {
@@ -289,19 +291,19 @@ const Room = {
     </div>
     `,
     beforeRouteUpdate (to, from, next) {
-        const answer = window.confirm('Do you really want to leave?')
-        if (answer) {
-          next(to)
-        } else {
-          next(false)
+        if(window.confirm('You will be redirected to the homepage. Continue?')) {
+            socket.disconnect(true)
+            window.location.href = "https://frenly-park.ddns.net"
         }
+        else
+            next(false)
     },
     beforeRouteLeave (to, from, next) {
-        const answer = window.confirm('Do you really want to leave?')
-        if (answer) {
-          next()
-        } else {
-          next(false)
+        if(window.confirm('Do you really wish to leave?')) {
+            socket.disconnect(true)
+            window.location.href = "https://frenly-park.ddns.net"
         }
+        else
+            next(false)
     }
 }
