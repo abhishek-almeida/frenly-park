@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
       setTimeout(() => io.to(user.room).emit('setSearchState', false), 10000)
       yt.search(search).then(res => {
         if(res.videos.length) {     
-          exec('youtube-dl -f 140 -g -- ' + res.videos[0].id , (error, stdout, stderr) => {
+          exec('yt-dlp -f 140 -g -- ' + res.videos[0].id , (error, stdout, stderr) => {
             if (error) {
               console.error(`exec error: ${error}`)
               return
