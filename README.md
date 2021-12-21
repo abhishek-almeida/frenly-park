@@ -5,4 +5,4 @@ People can create a room, invite others and enjoy listening to music together
 
 Require node packages- express, socket.io, scrape-youtube
 
-https://frenly-park.ddns.net
+https://frenly-park.webhop.me
